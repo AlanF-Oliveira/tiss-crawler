@@ -1,0 +1,29 @@
+plugins {
+    id 'groovy'
+    id 'application'
+}
+
+group = 'org.alan'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.codehaus.groovy:groovy-all:2.5.4'
+    implementation 'io.github.http-builder-ng:http-builder-ng-apache:1.0.4'
+    implementation 'org.slf4j:slf4j-api:1.8.0-alpha0'
+    implementation 'org.jsoup:jsoup:1.14.3'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
+
+}
+
+application {
+    mainClass = 'org.alan.Main'
+}
+
+test {
+    useJUnitPlatform()
+}
