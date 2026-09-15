@@ -1,9 +1,12 @@
 package org.alan
 
-
-static void main(String[] args) {
-    TissCrawler tissCrawler = new TissCrawler()
-    HistoricoTiss historicoTiss = new HistoricoTiss()
-    tissCrawler.buscarTiss()
-    historicoTiss.buscarHistorico()
+class Main {
+    static void main(String[] args) {
+        TissCrawler tissCrawler = new TissCrawler()
+        HistoricoTiss historicoTiss = new HistoricoTiss()
+        TabelaDeErrosANS tabelaDeErrosANS = new TabelaDeErrosANS()
+        tissCrawler.buscarTiss()
+        historicoTiss.buscarHistorico()
+        tabelaDeErrosANS.buscarTabelaDeErros()
+    }
 }

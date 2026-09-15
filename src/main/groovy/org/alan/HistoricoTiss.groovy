@@ -5,6 +5,7 @@ import org.jsoup.nodes.Document
 import org.jsoup.nodes.Element
 import org.jsoup.select.Elements
 
+import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
 
@@ -89,6 +90,7 @@ class HistoricoTiss {
     void salvarHistorico(List historico) {
 
         Path arquivo = Paths.get("./Downloads/historico_tiss.csv")
+        Files.createDirectories(arquivo.getParent())
         arquivo.toFile().withWriter("UTF-8") { writer ->
             writer.writeLine("Competência,Publicação,Início de Vigência")
             historico.each { Map registro ->

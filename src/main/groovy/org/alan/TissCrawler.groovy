@@ -4,6 +4,7 @@ import groovyx.net.http.HttpBuilder
 import org.jsoup.nodes.Document
 import org.jsoup.nodes.Element
 
+import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
 
@@ -57,7 +58,7 @@ class TissCrawler {
 
             Element linkComponenteComunicacao = paginaPadraoTiss.select("a")
                     .find {
-                        it.text().contains("Componente de Comunicação")
+                        it.text() ==~ /(?i).*Componente de Comunicação.*\.zip.*/
                     }
             //print linkComponenteComunicacao.text()
             String downloadCompComunicacao = linkComponenteComunicacao.attr("href")
@@ -77,10 +78,10 @@ class TissCrawler {
             }
         }
         Path dir = Paths.get("./Downloads/Aquivos_padrao_TISS")
-        java.nio.file.Files.createDirectories(dir)
+        Files.createDirectories(dir)
         String nomeArquivo = new URI(downloadCompComunicacao).path.tokenize("/").last()
         Path destino = dir.resolve(nomeArquivo)
-        java.nio.file.Files.write(destino, arquivo)
+        Files.write(destino, arquivo)
     }
 }
 
