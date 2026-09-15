@@ -23,11 +23,11 @@ class TissCrawler {
             //println linkPrestador.text()
             String urlPrestadores = linkPrestador.attr("href")
 
+
             Document paginaPrestadores = HttpBuilder.configure {
                 request.uri = urlPrestadores
             }.get()
             println paginaPrestadores.title()
-
 
             Element linkTiss = paginaPrestadores.select("a")
                     .find {
@@ -48,6 +48,7 @@ class TissCrawler {
                     }
             //println linkPadraoTiss.text()
             String urlPadraoTiss = linkPadraoTiss.attr("href")
+
 
             Document paginaPadraoTiss = HttpBuilder.configure {
                 request.uri = urlPadraoTiss
